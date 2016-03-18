@@ -21,9 +21,10 @@
 }
 
 - (IBAction)getUrl:(id)sender {
-    NSURL *url = [NSURL URLWithString:self.urlTextField.text];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    self.urlContentTextView.text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  self.urlContentTextView.text = @"Bar!";
+    // NSURL *url = [NSURL URLWithString:self.urlTextField.text];
+    // NSData *data = [NSData dataWithContentsOfURL:url];
+    // self.urlContentTextView.text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
 @end

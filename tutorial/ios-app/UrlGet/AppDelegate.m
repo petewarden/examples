@@ -20,14 +20,15 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
   UITabBarController *bar = [[UITabBarController alloc] init];
-  [bar setViewControllers:
-      @[[[UrlGetViewController alloc] init]]];
+  UrlGetViewController *controller = [[UrlGetViewController alloc] init];
+  [bar setViewControllers: @[controller]];
   bar.selectedIndex = 0;
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   self.window.rootViewController = bar;
   [self.window makeKeyAndVisible];
+  extern char* g_was_global_constructor_called;
+  controller.urlContentTextView.text = [NSString stringWithCString: g_was_global_constructor_called encoding: NSASCIIStringEncoding];
   return YES;
 }
 
