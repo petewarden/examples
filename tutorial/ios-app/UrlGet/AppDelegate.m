@@ -16,6 +16,8 @@
 
 #import "UrlGetViewController.h"
 
+#include "../global_variable.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
@@ -27,8 +29,7 @@
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   self.window.rootViewController = bar;
   [self.window makeKeyAndVisible];
-  extern char* g_was_global_constructor_called;
-  controller.urlContentTextView.text = [NSString stringWithCString: g_was_global_constructor_called encoding: NSASCIIStringEncoding];
+  controller.urlContentTextView.text = [NSString stringWithCString: GetGlobalVariable() encoding: NSASCIIStringEncoding];
   return YES;
 }
 

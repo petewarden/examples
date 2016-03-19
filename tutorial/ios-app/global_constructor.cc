@@ -1,9 +1,9 @@
-char* g_was_global_constructor_called = "Global constructor was not called";
+#include "global_variable.h"
 
 class GlobalConstructor {
  public:
   GlobalConstructor() {
-    g_was_global_constructor_called = "Global constructor was called!";
+    SetGlobalVariable("Global constructor was called!");
   }
 };
 
